@@ -1,7 +1,6 @@
 //бібліотеки
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
@@ -9,7 +8,7 @@ const LOADER = document.getElementById('loader');
 const GALLERY = document.getElementById('gallery');
 const lightbox = new SimpleLightbox('.gallery a');
 
-export function showImages(images) {
+export async function showImages(images) {
     const markup = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
         `<div class="card">
       <a href="${largeImageURL}" data-lightbox="gallery" data-title="${tags}">
@@ -41,13 +40,14 @@ export function showImages(images) {
         })
     );
 
-    Promise.all(loadDelay)
-        .then(() => {
-            LOADER.style.display = 'none';
-        })
-        .catch((error) => {
+    try {
+        await Promise.all(loadDelay);
+        LOADER.style.display = 'none';
+        lightbox.refresh()
+    } catch (error) {
             console.error('Error loading images:', error);
-        });
-
-    lightbox.refresh()
-}
+        }
+    }
+    
+        
+           

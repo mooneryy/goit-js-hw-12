@@ -22,7 +22,7 @@ const lightbox = new SimpleLightbox('.gallery a');
 // Параметри для пагінації
 let currentPage = 1;
 let currentQuery = "";
-const PER_PAGE = 15;
+let PER_PAGE = 15;
 
 // Функція для відображення/приховування кнопки "Load more"
 function toggleLoadMoreButton(show) {
@@ -40,7 +40,7 @@ async function loadMoreImages() {
 
     try {
         currentPage += 1;
-        const data = await fetchImages(currentQuery, currentPage);
+        const data = await fetchImages(currentQuery, currentPage, PER_PAGE);
         const totalHits = data.totalHits;
         const totalPages = Math.floor(totalHits / PER_PAGE);
 
@@ -73,8 +73,7 @@ async function loadMoreImages() {
     }
 }
 
-// Додавання слухача подій для кнопки "Load more"
-LOAD_MORE_BUTTON.addEventListener('click', loadMoreImages);
+
 
 // Функція для виконання пошуку
 async function performSearch(query) {
@@ -136,3 +135,6 @@ async function searchFormSubmit(event) {
 
 // Додавання слухача події для форми пошуку
 SEARCH_FORM.addEventListener('submit', searchFormSubmit);
+
+// Додавання слухача подій для кнопки "Load more"
+LOAD_MORE_BUTTON.addEventListener('click', loadMoreImages);

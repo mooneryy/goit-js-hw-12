@@ -23,6 +23,8 @@ const lightbox = new SimpleLightbox('.gallery a');
 let currentPage = 1;
 let currentQuery = "";
 let PER_PAGE = 15;
+// Глобальна змінна для зберігання всіх зображень
+let allImages = [];
 
 // Функція для відображення/приховування кнопки "Load more"
 function toggleLoadMoreButton(show) {
@@ -55,7 +57,9 @@ async function loadMoreImages() {
             });
             toggleLoadMoreButton(false);
         } else {
-            showImages(data.hits);
+            // Додаємо нові зображення до існуючих
+            allImages = [...allImages, ...data.hits];
+            showImages(allImages);
             const cardHeight = GALLERY.querySelector('.card').getBoundingClientRect().height;
             window.scrollBy({
                 top: cardHeight * 2,

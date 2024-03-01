@@ -72,6 +72,7 @@ body {
   color: #808080;
   padding-left: 15px;
   margin-top: 28px;
+  outline: none;
 }
 
 #search-input:hover {

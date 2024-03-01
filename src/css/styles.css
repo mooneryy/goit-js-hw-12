@@ -7,6 +7,14 @@
 @import url('./reset.css');
 @import url('./styles.css');
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
 
 .loader {
   display: none;
@@ -74,7 +82,7 @@
   border-color: #4e75ff;
 }
 
-button {
+.submit-btn {
   border-radius: 8px;
   padding: 8px 16px;
   width: 91px;
@@ -97,14 +105,18 @@ button:hover {
 
 #gallery {
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
 }
 
 .card {
-  width: calc((100% - 24px) /3);
+  width: calc(33.333% - 16px);;
   margin-bottom: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  
 }
 
 .card img {
@@ -150,14 +162,18 @@ button:hover {
 }
 
 #load-more-btn {
-display: none;
-width: 125px;
-  height: 40px;
+  display: none;
+  border-radius: 8px;
+  border: none;
   padding: 8px 16px;
+  width: 125px;
+  height: 40px;
   font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-    letter-spacing: 0.04em;
-    color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #fff;
+  background: #4e75ff;
+  margin-bottom: 20px;
+  
 }

@@ -12,7 +12,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
 }
 
 
@@ -106,17 +105,16 @@ button:hover {
 
 .gallery {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  min-height: 100vh;
   margin-top: 20px;
 }
 
 .card {
-  width: calc(33.333% - 16px);;
+  width: calc((100% - 48px) /3);
+  justify-content: center;
+  align-items: center;
   margin-bottom: 24px;
-  box-sizing: border-box;
   overflow: hidden;
   
 }
@@ -178,4 +176,8 @@ button:hover {
   background: #4e75ff;
   margin-bottom: 20px;
   
+}
+
+#load-more-btn:hover {
+  background: #6c8cff;
 }

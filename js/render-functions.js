@@ -28,9 +28,10 @@ export async function showImages(images) {
       <p class="title-value">${downloads}</p>
        </div>
       </div>
-    </div>`);
-
-  GALLERY.insertAdjacentHTML('beforeend', markup.join(''));
+    </div>`)
+      .join('');
+  GALLERY.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
 
     const imgLoad = GALLERY.querySelectorAll('img');
     const loadDelay = Array.from(imgLoad).map(img =>
@@ -41,9 +42,8 @@ export async function showImages(images) {
     );
 
     try {
-        await Promise.all(loadDelay);
+      await Promise.all(loadDelay);
         LOADER.style.display = 'none';
-        lightbox.refresh()
     } catch (error) {
             console.error('Error loading images:', error);
         }

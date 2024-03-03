@@ -30,7 +30,7 @@ export async function showImages(images) {
       </div>
     </div>`);
 
-    GALLERY.innerHTML = markup.join('');
+  GALLERY.insertAdjacentHTML('beforeend', markup.join(''));
 
     const imgLoad = GALLERY.querySelectorAll('img');
     const loadDelay = Array.from(imgLoad).map(img =>

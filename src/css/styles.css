@@ -103,18 +103,24 @@ button:hover {
   background: #6c8cff;
 }
 
+.search-container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  
+}
+
 .gallery {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.card {
-  width: calc((100% - 32px) / 3);
-  margin: 0 0 24px;
+  flex-direction: row;
+  column-gap: 24px;
+  row-gap: 28px;
   
 }
+
 
 .card img {
   width: 360px;
@@ -172,7 +178,7 @@ button:hover {
   line-height: 150%;
   color: #fff;
   background: #4e75ff;
-  margin-bottom: 20px;
+  margin-top: 20px;
   
 }
 
